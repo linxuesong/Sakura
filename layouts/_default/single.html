@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<!--整体结构BEGIN-->
+<!--0   正文之前-->
+<!--head-->
+<!--body header-->
+<!---->
+<!--1   正文-->
+<!--1.1文章图片-->
+<!-- footer-->>
+<!--整体结构END-->
+
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+
+        <img class="pattern-attachment-img lazyload" style="background-image: url({{ .Params.images }});" src="{{ $.Site.Params.lazyloadImg }}" data-src="{{ .Params.images }}">
+        </img>
+
+
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+              <main id="main" class="site-main" role="main">
+                <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+                  <div class="toc"></div>
+                  <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+                  <div class="entry-content">
+                    {{.Content}}
+                  </div>
+                  
+                  <!-- .entry-content -->
+
+                  <!--打赏图标-->
+                  <div class="single-reward">
+                    <div class="reward-open">赏
+                      <div class="reward-main">
+                        <ul class="reward-row">
+                          <li class="alipay-code"><img src="<%- (theme.cdn || '') + theme.donate.alipay%>"></li>
+                          <li class="wechat-code"><img src="<%- (theme.cdn || '') + theme.donate.wechat%>"></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!--打赏图标 end-->
+
+                  <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+                  <footer class="post-footer">
+                    <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+                    <div class="post-share">
+                      <div class="social-share sharehidden share-component"></div>
+                      <i class="iconfont show-share icon-forward"></i>
+                    </div>
+                  </footer><!-- .entry-footer -->
+                </article>
+          
+              <!-- 上一页、下一页 -->
+              <section class="post-squares nextprev">
+                  {{if .PrevInSection}}
+                      {{if .NextInSection}}
+                          <div class="post-nepre half previous">
+                      {{else}}
+                      <div class="post-nepre full previous">
+                      {{end}}
+                      <a href="{{.PrevInSection.Permalink}}" rel="prev">
+                        <div class="background">
+                          <img class="lazyload" src="{{ $.Site.Params.lazyloadImg }}" data-src="{{ .PrevInSection.Params.images }}" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="{{ .PrevInSection.Params.images }}"></img>
+                        </div>
+                        <span class="label">
+                        Previous Post</span>
+                        <div class="info">
+                          <h3>{{ .PrevInSection.Title }}</h3>
+                          <hr>
+                        </div>
+                      </a>
+                    </div>
+                  {{end}}
+
+                  {{if .NextInSection}}
+                      {{if .PrevInSection}}
+                        <div class="post-nepre half previous">
+                      {{else}}
+                        <div class="post-nepre full previous">
+                      {{end}}
+                      <a href="{{.NextInSection.Permalink}}" rel="next">
+                        <div class="background">
+                          <img class="lazyload" src="{{ $.Site.Params.lazyloadImg }}" data-src="{{ .NextInSection.Params.images }}" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="{{ .NextInSection.Params.images }}"></img>
+                        </div>
+                        <span class="label">
+                        Next Post</span>
+                        <div class="info">
+                          <h3>{{ .NextInSection.Title }}</h3>
+                          <hr>
+                        </div>
+                      </a>
+                    </div>
+                    {{end}}
+                </section>
+            </article>
+        </div>
+        <!-- 上一页、下一页 end -->
+        {{- partial "footer.html" . -}}
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <meta charset="utf-8">
+     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+     <!-- 设置网页标题开始  -->
+     <title>{{ if .Title }}{{ .Title }}-{{ .Site.Params.SEOTitle }}{{ else }}{{ .Site.Params.SEOTitle }}：:{{ end }}</title>
+     <!-- 设置网页标题结束 -->
+
+     <!-- 百度收录 由于github拒绝百度脚本访问，所以失效  -->
+     <meta name="baidu-site-verification" content="code-Mh5omtSUnt" />
+     <!-- 百度收录end  -->
+     <!-- google收录 -->
+     <meta name="google-site-verification" content="-b5rAEo2_d1dn4CdJ27sSIEfxMSzkUiRaDuNU2phVn8" />
+     <!-- google收录end  -->
+
+     <!-- 设置网页标题图标 待实现-->
+     <!-- <% if (theme.favicon){ %>
+          <link rel="shortcut icon" href="<%- theme.favicon %>">
+        <% } %> -->
+     <!-- 设置网页标题图标 end-->
+
+     <!--导入对应css资源-->
+     <meta http-equiv="x-dns-prefetch-control" content="on">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+     <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+     <link rel="stylesheet" href="/css/lib.min.css" media="all">
+     <link rel="stylesheet" href="/css/font.css" media="all">
+     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+     <link rel="stylesheet" href="/css/zoom.css" media="all">
+     <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+
+     <script type="text/javascript">
+          var bg = "<%= theme.bg%>".split(",");
+          var bgindex = Math.floor(Math.random()*bg.length);
+          if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+              alert('朋友，IE浏览器未适配哦~');
+          }
+     </script>
+</head>
+
